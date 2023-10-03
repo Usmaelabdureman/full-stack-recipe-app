@@ -1,0 +1,22 @@
+
+# git ignore file
+# git commit -m "first commit"
+
+# git remote add origin
+# git push -u origin master
+
+# git push origin master
+
+# git pull origin master
+
+/node_modules
+/.pnp
+.pnp.js
+.cache
+dist
+.next
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
