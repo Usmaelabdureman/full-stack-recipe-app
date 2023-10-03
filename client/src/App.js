@@ -19,7 +19,7 @@ const App = () => {
 
   const client = new ApolloClient({
     cache:new InMemoryCache(),
-    uri:"http://localhost:5000/graphql"
+    uri:"https://recipe-gufm.onrender.com/graphql"
   })
 
   const filteredRecipes = recipes.filter((recipe) =>
