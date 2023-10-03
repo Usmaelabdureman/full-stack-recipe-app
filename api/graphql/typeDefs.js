@@ -7,13 +7,13 @@ module.exports = gql`
     createdAt: String!
     thumbsUp: Int!
     thumbsDown: Int!
-    imageUrl: String
+    imageUrl: String!
   }
 
   input RecipeInput {
     name: String!
     description: String!
-    imageUrl: String
+    imageUrl: String!
   }
 
   type Query {
@@ -24,6 +24,6 @@ module.exports = gql`
   type Mutation {
     createRecipe(recipeInput: RecipeInput): Recipe!
     deleteRecipe(id: ID!): Recipe
-    updateRecipe(id: ID!, recipeInput: RecipeInput): Recipe
+    updateRecipe(id: ID!, recipeInput: RecipeInput): Recipe!
   }
 `;
