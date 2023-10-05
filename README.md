@@ -24,7 +24,7 @@ Follow the [Learn.md](Learn.md) guide in the repository for detailed instruction
 
 To run the app locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/recipe-app.git`
+1. Clone the repository: `git clone https://github.com/Usmaelabdureman/recipe-app.git`
 2. Set up the backend and frontend as described in the [Learn.md](Learn.md) guide.
 3. Start the backend server: `cd backend && npm start`
 4. Start the React app: `cd frontend && npm start`
