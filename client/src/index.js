@@ -2,11 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
+import { Amplify, Interactions } from 'aws-amplify';
+import awsmobile from './aws-exports';
 import {Provider } from 'react-redux';
 import store from './redux/store';
-
+Amplify.configure(awsmobile);
+Amplify.configure({
+  Interactions: {
+    bots: {
+      "todayweatherbot": {
+        "name": "todayweatherbot",
+        "alias": "$LATEST",
+        "region": "us-east-1",
+      },
+    }
+  }
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

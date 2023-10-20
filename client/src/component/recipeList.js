@@ -3,6 +3,10 @@ import React from 'react';
 import { useQuery, gql, useMutation } from '@apollo/client';
 import RecipeCard from './recipeCard';
 import Loading from './loading';
+import Chatbot from './mybot';
+import {  Button,
+  withAuthenticator} from '@aws-amplify/ui-react'
+import "@aws-amplify/ui-react/styles.css";
 
 const QUERY_ALL_RECIPES = gql`
   query GetRecipes {
@@ -34,7 +38,7 @@ const DELETE_RECIPE_MUTATION = gql`
   }
 `;
 
-const RecipeList = () => {
+const RecipeList = ({user ,signOut}) => {
   const { data, loading, error } = useQuery(QUERY_ALL_RECIPES);
   const [updateRecipe] = useMutation(UPDATE_RECIPE_MUTATION);
   const [deleteRecipe] = useMutation(DELETE_RECIPE_MUTATION);
@@ -77,6 +81,7 @@ const RecipeList = () => {
 
   return (
     <div className="container mx-auto mt-8">
+    <h1 className="text-4xl font-bold mb-8">Hello,{user.username}</h1>  
       <h2 className="text-2xl font-semibold mb-4">Featured Recipes</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {data.getRecipes.map((recipe) => (
@@ -88,8 +93,11 @@ const RecipeList = () => {
           />
         ))}
       </div>
+      {/* <Interactions bot='todayweatherbot'></Interactions> */}
+      <Chatbot/>
+      <Button onClick={signOut}>Sign Out</Button>
     </div>
   );
 };
 
-export default RecipeList;
+export default withAuthenticator(RecipeList);
