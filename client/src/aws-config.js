@@ -7,8 +7,8 @@ import AWS from 'aws-sdk';
 
 // Configure AWS services with your credentials and region
 AWS.config.update({
-  accessKeyId: 'AKIA3KL5YXS5X4X2DJ6D',
-  secretAccessKey: 'LqNDXBW+/M9am2GS/v2yNAx6gRbJ5boepkZaNtBA',
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey:process.env.REACT_APP_AWS_SECRET_ACCESS_KEY ,
   region: 'eu-north-1',
 });
 
